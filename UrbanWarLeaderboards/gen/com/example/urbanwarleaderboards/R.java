@@ -19,6 +19,9 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
+        public static final int menu_btn_h=0x7f040003;
+        public static final int menu_btn_margin=0x7f040004;
+        public static final int menu_btn_w=0x7f040002;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -28,14 +31,20 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_title_screen=0x7f030000;
+        public static final int level_select=0x7f030001;
     }
     public static final class menu {
         public static final int title_screen=0x7f070000;
     }
     public static final class string {
+        /**  Menu button Strings 
+         */
+        public static final int about=0x7f050003;
+        public static final int about_game=0x7f050004;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
+        public static final int view_leaderboards=0x7f050005;
     }
     public static final class style {
         /** 

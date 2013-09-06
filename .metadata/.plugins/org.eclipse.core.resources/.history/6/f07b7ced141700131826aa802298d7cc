@@ -1,0 +1,36 @@
+package com.example.firstproject;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+	private static final String DEBUG_TAG="MyFirstDebug";
+	
+	private MediaPlayer mp;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Log.i("HelloFromMyApp", DEBUG_TAG);
+        
+        playMusicFromWeb();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    private void playMusicFromWeb(){
+    	
+    }
+}

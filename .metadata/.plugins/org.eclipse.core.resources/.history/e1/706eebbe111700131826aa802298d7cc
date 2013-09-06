@@ -1,0 +1,11 @@
+package com.example.urbanwarleaderboards;
+
+import android.app.Activity;
+
+public class LevelSelectView extends Activity {
+
+	public LevelSelectView() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

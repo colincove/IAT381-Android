@@ -1,19 +1,26 @@
 package com.example.urbanwarleaderboards;
 
+import webservices.Webservices;
 import android.os.Bundle;
+import android.provider.SyncStateContract.Helpers;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
 public class TitleScreenActivity extends Activity {
-
-    @Override
+  public static Webservices webServices;
+  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TitleScreenActivity.webServices = new Webservices();
         setContentView(R.layout.activity_title_screen);
     }
-
+  @Override
+protected void onStart(){
+	super.onStart();
+	webServices.start();
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

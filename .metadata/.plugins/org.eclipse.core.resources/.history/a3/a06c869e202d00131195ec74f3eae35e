@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	<item type="id" name="test_btn_id" />
+    	<item type="id" name="main_grid_view" />
+    	<item type="id" name="sensor_display_layout"/>
+    	
+    	<!--  ID's for sensor data display text fields -->
+    	<item type="id" name="sensor_name_display"/>
+    	<item type="id" name="value_01"/>
+    	<item type="id" name="value_02"/>
+    	<item type="id" name="value_03"/>
+    	<item type="id" name="resolution_display"/>
+    	<item type="id" name="max_range_display"/>
+    	<item type="id" name="min_range_display"/>
+    	<item type="id" name="power_display"/>
+    	<item type="id" name="type_display"/>
+    	<item type="id" name="vendor_display"/>
+    	<item type="id" name="version_display"/>
+    	
+</resources>

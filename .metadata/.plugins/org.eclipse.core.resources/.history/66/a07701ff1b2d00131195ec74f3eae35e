@@ -1,0 +1,48 @@
+package com.example.colincove_assignment02;
+
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class SensorDisplayActivity extends Activity implements SensorEventListener {
+
+	public static Sensor displayedSensor;
+	
+	private SensorManager manager;
+	
+	private TextView dataDisplay;
+private TextView  sensorNameDisplay; 
+	private LinearLayout layout;
+	
+	public SensorDisplayActivity() {
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sensor_info);
+		manager = (SensorManager) getSystemService(SENSOR_SERVICE);
+		if(displayedSensor !=null){
+			manager.registerListener(this, displayedSensor, SensorManager.SENSOR_DELAY_NORMAL);
+		}
+		dataDisplay = new TextView(this);
+		sensorNameDisplay = new TextView(this);
+		layout.addView(dataDisplay);
+		layout.addView(sensorNameDisplay);
+	}
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		// TODO Auto-generated method stub
+		dataDisplay.setText(Float.toString(event.values[0]));
+	}
+}

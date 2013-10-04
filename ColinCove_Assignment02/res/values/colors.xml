@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="low_contrast" >#c4c4c4</color>
+    <color name="heigh_contrast" >#000000</color>
+</resources>

@@ -1,0 +1,17 @@
+package com.example.colincove_assignment02;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class MotionActivity extends Activity {
+
+	private Button updateBtn;
+	public MotionActivity() {
+		// TODO Auto-generated constructor stub
+	}
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		updateBtn=(Button) findViewById(R.id.update_motion_status);
+	}
+}

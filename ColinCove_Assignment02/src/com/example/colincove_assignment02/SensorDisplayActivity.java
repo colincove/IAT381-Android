@@ -30,7 +30,7 @@ private TextView  sensorNameDisplay;
 	private TextView maxDisplay;
 	private TextView minDisplay;
 	private TextView powerDisplay;
-	private TextView value01Dispay;
+	private TextView value01Display;
 	private TextView value02Display;
 	private TextView value03Display;
 	
@@ -56,7 +56,7 @@ private TextView  sensorNameDisplay;
 		maxDisplay=(TextView)findViewById(R.id.max_range_display);
 		minDisplay=(TextView)findViewById(R.id.min_range_display);
 		powerDisplay=(TextView)findViewById(R.id.power_display);
-		value01Dispay=(TextView)findViewById(R.id.value_01);
+		value01Display=(TextView)findViewById(R.id.value_01);
 		value02Display=(TextView)findViewById(R.id.value_02);
 		value03Display=(TextView)findViewById(R.id.value_03);
 		nameDisplay=(TextView)findViewById(R.id.sensor_name_display);
@@ -70,6 +70,7 @@ private TextView  sensorNameDisplay;
 		powerDisplay.setText(Float.toString(displayedSensor.getPower()));
 		nameDisplay.setText(displayedSensor.getName());
 		
+		manager.registerListener(this, displayedSensor, SensorManager.SENSOR_DELAY_GAME);
 		//layout.addView(dataDisplay);
 		/*layout.addView(sensorNameDisplay);*/
 		
@@ -84,5 +85,8 @@ private TextView  sensorNameDisplay;
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
 		//dataDisplay.setText(Float.toString(event.values[0]));
+		value01Display.setText(Float.toString(event.values[0]));
+		value02Display.setText(Float.toString(event.values[1]));
+		value03Display.setText(Float.toString(event.values[2]));
 	}
 }

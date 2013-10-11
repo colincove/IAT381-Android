@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ColinCove_Assignment02</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="test_btn">My Test Button</string>
+    <!-- Sensor Info Titles -->
+    <string name="resolution_title">Resolution</string>
+    <string name="max_range_title">Max Range</string>
+    <string name="min_delay_title">Min Range</string>
+    <string name="power_title">Power</string>
+<string name="type_title">Sensor Type</string>
+<string name="vendor_title">Vendor</string>
+<string name="version_title">Version</string>
+</resources>

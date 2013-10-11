@@ -1,0 +1,61 @@
+package com.example.colincove_assignment02;
+
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MotionActivity extends Activity implements OnClickListener, SensorEventListener {
+public  static final String STATUS_STILL="motion_still";
+	
+	private Button updateBtn;
+	private SensorManager manager;
+	private Sensor accSensor;
+	private float[] pastValues;
+	private int valuesSize=10;
+	private float avg;
+	private float total;
+	
+	public MotionActivity() {
+		// TODO Auto-generated constructor stub
+		pastValues = new float[valuesSize];
+	}
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		updateBtn=(Button) findViewById(R.id.update_motion_status);
+		updateBtn.setOnClickListener(this);
+		manager  =(SensorManager) getSystemService(SENSOR_SERVICE);
+		accSensor=manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		manager.registerListener(this,accSensor,SensorManager.SENSOR_DELAY_NORMAL);
+	}
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		// TODO Auto-generated method stub
+		total=0f;
+		for(int i=0;i<valuesSize-1;i++){
+			total+=pastValues[i+1];
+			pastValues[i+1]=pastValues[i];
+		}
+		pastValues[0]=(float)Math.sqrt(
+				event.values[0]*event.values[0]+
+				event.values[1]*event.values[1]+
+				event.values[2]*event.values[2]);
+		total+=pastValues[0];
+		avg=total/valuesSize;
+	}
+}

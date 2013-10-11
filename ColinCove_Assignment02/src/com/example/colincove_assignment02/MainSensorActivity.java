@@ -8,15 +8,21 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
-public class MainSensorActivity extends Activity implements SensorEventListener {
+public class MainSensorActivity extends Activity implements SensorEventListener, OnClickListener {
 	
 	private SensorManager sensorManager;
 	private List<Sensor> sensors;
+	private LightBleep lBleep;
+	private TableNotification tNotivication;
+	private Button motionBtn;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,7 +31,11 @@ public class MainSensorActivity extends Activity implements SensorEventListener 
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		sensors=sensorManager.getSensorList(Sensor.TYPE_ALL);
 		setupSensors();
+		lBleep  =new LightBleep(this,sensorManager);
+		tNotivication = new TableNotification(this, sensorManager);
 		
+		motionBtn =(Button) findViewById(R.id.motion);
+		motionBtn.setOnClickListener(this);
 	}
 
 	@Override
@@ -62,5 +72,14 @@ public class MainSensorActivity extends Activity implements SensorEventListener 
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		if(v.getId()==R.id.motion){
+			Intent intent = new Intent(this,MotionActivity.class);
+			startActivity(intent);
+		}
 	}
 }

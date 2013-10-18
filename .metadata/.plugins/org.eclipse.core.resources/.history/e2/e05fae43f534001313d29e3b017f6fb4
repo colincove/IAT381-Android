@@ -1,0 +1,14 @@
+package com.example.colincove_assignment02;
+
+import android.content.Context;
+import android.widget.Button;
+
+public class EnvironmentController {
+	private Context context;
+	private Button button;
+	public EnvironmentController(Context context, Button button) {
+		this.context=context;
+		this.button=button;l
+	}
+
+}

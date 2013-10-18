@@ -23,6 +23,7 @@ public class MainSensorActivity extends Activity implements SensorEventListener,
 	private LightBleep lBleep;
 	private TableNotification tNotivication;
 	private Button motionBtn;
+	private EnvironmentController eController;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class MainSensorActivity extends Activity implements SensorEventListener,
 		
 		motionBtn =(Button) findViewById(R.id.motion);
 		motionBtn.setOnClickListener(this);
+		
+		eController = new EnvironmentController(this, (Button)findViewById(R.id.environment));
 	}
 
 	@Override

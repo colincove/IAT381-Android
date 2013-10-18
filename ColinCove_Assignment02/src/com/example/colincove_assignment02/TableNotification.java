@@ -39,8 +39,7 @@ public class TableNotification implements SensorEventListener {
 		//if(manager.getOrientation())
 		values=event.values;
 		
-		if(values[1]<1 && values[1] > -1 &&
-				values[2]<1 && values[2] > -1){
+		if(values[1]<10 && values[1] > -10){
 			if(!flat){
 				//device is sitting on a table according to orientation sensor. 
 				Toast t=Toast.makeText(c, "Sitting", Toast.LENGTH_LONG);

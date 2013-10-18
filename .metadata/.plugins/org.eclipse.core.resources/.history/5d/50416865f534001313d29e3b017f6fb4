@@ -1,0 +1,22 @@
+package com.example.colincove_assignment02;
+
+import android.content.Context;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class EnvironmentController implements OnClickListener {
+	private Context context;
+	private Button button;
+	public EnvironmentController(Context context, Button button) {
+		this.context=context;
+		this.button=button;
+		button.setOnClickListener(this);
+	}
+	@Override
+	public void onClick(View v) {
+		
+		
+	}
+
+}

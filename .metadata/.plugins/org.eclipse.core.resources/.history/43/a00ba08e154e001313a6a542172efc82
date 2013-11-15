@@ -1,0 +1,10 @@
+package com.example.assignment03;
+
+public class MeshGameObject extends GameObject {
+
+	public MeshGameObject(Game game) {
+		super(game);
+		// TODO Auto-generated constructor stub
+	}
+
+}

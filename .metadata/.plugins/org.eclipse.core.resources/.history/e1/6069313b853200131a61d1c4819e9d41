@@ -1,9 +1,0 @@
-package com.example.colincove_assignment02;
-
-public class LightBleep {
-
-	public LightBleep() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

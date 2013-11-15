@@ -1,0 +1,49 @@
+package com.example.assignment03;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
+import com.example.android.opengl.String;
+import com.example.android.opengl.Triangle;
+
+import android.opengl.Matrix;
+import android.opengl.GLES20;
+import android.opengl.GLSurfaceView;
+import android.opengl.GLSurfaceView.Renderer;
+
+public class GlRenderer implements Renderer {
+
+
+	private final float[] mMVPMatrix = new float[16];
+	private final float[] mProjMatrix = new float[16];
+	private final float[] mVMatrix = new float[16];
+	private final float[] mRotationMatrix = new float[16];
+
+	    // Declare as volatile because we are updating it from another thread
+	public volatile float mAngle;
+	@Override
+	public void onDrawFrame(GL10 unused) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSurfaceChanged(GL10 unused, int width, int height) {
+		// TODO Auto-generated method stub
+		GLES20.glViewport(0, 0, width, height);
+		
+		float ratio =  (float) width/height;
+		
+		Matrix.frustumM(mProjMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
+	}
+
+	@Override
+	public void onSurfaceCreated(GL10 unused, EGLConfig config) {
+		// TODO Auto-generated method stub
+		GLES20.glClearColor(1.0F, 1.0F, 1.0F, 1.0F);
+	}
+	public static int loadShader(){
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.example.assignment03;
+
+public class ObjMesh {
+	private ObjData meshData;
+	public ObjMesh(ObjData meshData) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

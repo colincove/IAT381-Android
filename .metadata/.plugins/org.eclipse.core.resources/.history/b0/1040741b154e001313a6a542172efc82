@@ -1,0 +1,9 @@
+package com.example.assignment03;
+
+public class ObjMesh {
+
+	public ObjMesh() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

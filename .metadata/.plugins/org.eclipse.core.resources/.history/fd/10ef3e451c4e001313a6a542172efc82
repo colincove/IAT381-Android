@@ -1,0 +1,24 @@
+package com.example.assignment03;
+
+
+
+public class MeshGameObject extends GameObject {
+	private ObjMesh mesh;
+	static final int COORDS_PER_VERTEX = 3;
+	 private final FloatBuffer vertexBuffer;
+	public MeshGameObject(Game game, ObjMesh mesh) {
+		super(game);
+		this.mesh = mesh;
+	}
+	public ObjMesh getMesh(){
+		return mesh;
+	}
+	public void rotate(){
+		
+	}
+	
+	public void draw(float[] mvpMatrix){
+		
+	}
+
+}

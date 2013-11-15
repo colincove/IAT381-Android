@@ -1,0 +1,19 @@
+package com.example.assignment03;
+
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+import android.util.AttributeSet;
+
+public class GameSurfafceView extends GLSurfaceView {
+
+	public GameSurfafceView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+	public GameSurfafceView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -47,5 +47,17 @@ public class ObjData {
 		vertices[vIndex][2]=z;
 		vIndex++;
 	}
+	public int[][] getFaces(){
+		return faces;
+	}
+	public float[][] getVertices(){
+		return vertices;
+	}
+	public int getFaceCount(){
+		return fSize;
+	}
+	public int getVertexCount(){
+		return vSize;
+	}
 	
 }

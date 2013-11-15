@@ -11,6 +11,7 @@ import android.view.Menu;
 public class MainActivity extends Activity {
 	private ObjData data=null;
 	private ObjReader objReader;
+	private ObjMesh pyramidMesh;
 	public MainActivity(){
 		super();
 	
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
 		Resources res = getResources();
         objReader = new ObjReader(R.raw.pyramid, res);
         data = objReader.read();
-        
+        pyramidMesh = new ObjMesh(data);
 		}
 	}
 

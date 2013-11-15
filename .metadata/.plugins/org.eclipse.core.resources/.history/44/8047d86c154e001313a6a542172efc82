@@ -1,0 +1,12 @@
+package com.example.assignment03;
+
+public class GameObject {
+	protected Game game;
+	public GameObject(Game game) {
+		// TODO Auto-generated constructor stub
+		this.game=game;
+	}
+	public void update(){
+		
+	}
+}

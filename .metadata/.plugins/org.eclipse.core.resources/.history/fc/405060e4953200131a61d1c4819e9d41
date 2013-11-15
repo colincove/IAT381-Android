@@ -1,9 +1,0 @@
-package com.example.colincove_assignment02;
-
-public class MotionDetector {
-
-	public MotionDetector() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

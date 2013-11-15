@@ -1,0 +1,51 @@
+package com.example.assignment03;
+
+import java.nio.FloatBuffer;
+
+
+
+
+
+public class MeshGameObject extends GameObject {
+    private final String vertexShaderCode =
+            // This matrix member variable provides a hook to manipulate
+            // the coordinates of the objects that use this vertex shader
+            "uniform mat4 uMVPMatrix;" +
+
+            "attribute vec4 vPosition;" +
+            "void main() {" +
+            // the matrix must be included as a modifier of gl_Position
+            "  gl_Position = vPosition * uMVPMatrix;" +
+            "}";
+
+        private final String fragmentShaderCode =
+            "precision mediump float;" +
+            "uniform vec4 vColor;" +
+            "void main() {" +
+            "  gl_FragColor = vColor;" +
+            "}";
+	
+	private ObjMesh mesh;
+	static final int COORDS_PER_VERTEX = 3;
+	 private final FloatBuffer vertexBuffer;
+	 private final int mProgram;
+	    private int mPositionHandle;
+	    private int mColorHandle;
+	    private int mMVPMatrixHandle;
+	    float color[] = { 1.0f, 0.0f, 0.0f };
+	public MeshGameObject(Game game, ObjMesh mesh) {
+		super(game);
+		this.mesh = mesh;
+	}
+	public ObjMesh getMesh(){
+		return mesh;
+	}
+	public void rotate(){
+		
+	}
+	
+	public void draw(float[] mvpMatrix){
+		
+	}
+
+}

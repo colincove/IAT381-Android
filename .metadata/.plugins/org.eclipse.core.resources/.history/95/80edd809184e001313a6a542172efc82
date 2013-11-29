@@ -1,7 +1,0 @@
-package com.example.assignment03;
-
-import android.opengl.GLSurfaceView;
-
-public class GlRenderer extends GLSurfaceView.Renderer {
-
-}

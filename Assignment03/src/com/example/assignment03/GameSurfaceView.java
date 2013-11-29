@@ -14,8 +14,8 @@ public class GameSurfaceView extends GLSurfaceView {
 		game=context;
 		triangle = new Triangle();
 		setEGLContextClientVersion(2);
-		renderer = new GlRenderer(game.getMeshObjects());
-		renderer.triangle=triangle;
+		renderer = new GlRenderer(game.getMeshObjects(), getContext().getMainLooper(), getContext().getResources());
+		//renderer.triangle=triangle;
 		this.setRenderer(renderer);
 		
 		setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);

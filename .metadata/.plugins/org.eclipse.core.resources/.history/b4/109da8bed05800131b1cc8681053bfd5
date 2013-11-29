@@ -1,0 +1,146 @@
+package com.example.assignment03;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import android.content.res.Resources;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+
+public class ObjReader {
+	private String url;
+	private String rawData;
+	private InputStream stream;
+	public ObjReader(int resId, Resources res) {
+	    try {
+	        InputStream in_s = res.openRawResource(resId);
+
+	        byte[] b = new byte[in_s.available()];
+	        in_s.read(b);
+	        rawData = new String(b);
+	    } catch (Exception e) {
+	        // e.printStackTrace();
+	    	rawData = "";
+	    }
+	    
+	}
+	public ObjData read(){
+		ObjData data=new ObjData();
+		 BufferedReader br = null;
+		// convert String into InputStream
+		InputStream is = new ByteArrayInputStream(rawData.getBytes());
+
+		br = new BufferedReader(new InputStreamReader(is));
+
+		    try {
+		        String line = br.readLine();
+		        StringBuilder sb = new StringBuilder();
+		        while ((line = reader.readLine()) != null) {
+		            //line = br.readLine();
+		        	sb.append(line + "\n");
+		            //parseLine(line, data);
+		        }
+		        int i=5;
+		    } catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+		        try {
+					br.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    }
+		    return data;
+	}
+	class MessageHandler extends Handler{
+		public MessageHandler(Looper looper){
+			super(looper);
+		}
+		@ Override
+		public void handleMessage(Message inputMessage){
+			
+		}
+	}
+	private void parseLine(String line, ObjData data){
+		if(line!=null){
+		if(line.length()!=0){
+			char firstChar = line.charAt(0);
+			String[] lineData = line.replace("  ", " ").split(" ");
+			
+			if(firstChar=='f'){
+				//face
+				data.addFace(
+						Integer.parseInt(lineData[1]), 
+						Integer.parseInt(lineData[2]), 
+						Integer.parseInt(lineData[3]));
+			}else if(firstChar=='v'){
+				//Vertices
+				data.addVertice(
+						Float.parseFloat(lineData[1]), 
+						Float.parseFloat(lineData[2]), 
+						Float.parseFloat(lineData[3]));
+			}else if(firstChar=='#'){
+				//comment
+			}
+		}
+		}
+	}
+	class GetFileThread extends Thread {
+		
+		private Handler handler;
+
+		public GetFileThread(Handler handler) {
+			super("Read File Thread");
+			this.handler=handler;
+		}
+		@Override
+		public void run() {
+			String json = "";
+			InputStream is = null;
+			// Create a new HttpClient and Post Header
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpPost httppost = new HttpPost(request.getUrl());
+			try {
+				httppost.setEntity(new UrlEncodedFormEntity(request
+						.getNameValuePairs()));
+				// Execute HTTP Post Request
+				HttpResponse response;
+				response = httpclient.execute(httppost);
+				HttpEntity httpEntity = response.getEntity();
+				is = httpEntity.getContent();
+
+				BufferedReader reader = new BufferedReader(new InputStreamReader(
+						is, "iso-8859-1"), 8);
+				StringBuilder sb = new StringBuilder();
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					sb.append(line + "\n");
+				}
+				is.close();
+				json = sb.toString();
+				Message msg = new Message();
+				Bundle bundle = new Bundle();
+				bundle.putString("JSON", json);
+				msg.setData(bundle);
+				handler.sendMessage(msg);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClientProtocolException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+}

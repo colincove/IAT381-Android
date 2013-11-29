@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
-public class Game extends Activity {
+public class Game extends Activity implements IRecieveMesh{
 	private GLSurfaceView glView;
 	protected List<MeshGameObject> meshObjects;
 	private ObjData data=null;
@@ -24,10 +24,9 @@ public class Game extends Activity {
 		meshObjects = new ArrayList<MeshGameObject>();
 		if(data==null){
 			Resources res = getResources();
-	        objReader = new ObjReader(R.raw.pyramid, res);
-	        data = objReader.read();
-	        pyramidMesh = new ObjMesh(data);
-	        pyramidObject = new MeshGameObject(this, pyramidMesh);
+	        //objReader = new ObjReader(R.raw.pyramid, res);
+	        //objReader.read(this,getMainLooper());
+	       
 			}
 		glView = new GameSurfaceView(this);
 		setContentView(glView);
@@ -52,6 +51,12 @@ public List<MeshGameObject> getMeshObjects(){
 	protected void onResume(){
 		super.onResume();
 		glView.onResume();
+	}
+	@Override
+	public void recieveMesh(ObjData data) {
+		// TODO Auto-generated method stub
+		// pyramidMesh = new ObjMesh(data);
+	       // pyramidObject = new MeshGameObject(this, pyramidMesh);
 	}
 
 }

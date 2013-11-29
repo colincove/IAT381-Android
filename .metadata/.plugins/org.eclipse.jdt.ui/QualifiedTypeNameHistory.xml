@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.location.LocationManager"/>
-<fullyQualifiedTypeName name="com.example.firstproject.MainActivity"/>
-<fullyQualifiedTypeName name="android.location.Location"/>
-<fullyQualifiedTypeName name="android.provider.SyncStateContract.Helpers"/>
-<fullyQualifiedTypeName name="webservices.RC4Cipher"/>
-<fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.client.DefaultHttpClient"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpPost"/>
 <fullyQualifiedTypeName name="org.apache.http.NameValuePair"/>
@@ -46,9 +40,7 @@
 <fullyQualifiedTypeName name="com.example.colincove_assignment02.R.id"/>
 <fullyQualifiedTypeName name="android.media.MediaRecorder"/>
 <fullyQualifiedTypeName name="com.example.assignment03.ObjMesh"/>
-<fullyQualifiedTypeName name="com.example.assignment03.ObjData"/>
 <fullyQualifiedTypeName name="com.example.assignment03.GameSurfafceView"/>
-<fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="android.opengl.GLSurfaceView"/>
 <fullyQualifiedTypeName name="android.opengl.GLSurfaceView.Renderer"/>
 <fullyQualifiedTypeName name="android.graphics.Matrix"/>
@@ -58,6 +50,14 @@
 <fullyQualifiedTypeName name="android.opengl.GLES20"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="com.example.assignment03.MeshGameObject"/>
 <fullyQualifiedTypeName name="com.example.assignment03.GlRenderer"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="com.example.assignment03.ObjReader.MessageHandler"/>
+<fullyQualifiedTypeName name="com.example.assignment03.ObjData"/>
+<fullyQualifiedTypeName name="com.example.assignment03.MeshGameObject"/>
+<fullyQualifiedTypeName name="android.os.Looper"/>
+<fullyQualifiedTypeName name="android.content.res.Resources"/>
+<fullyQualifiedTypeName name="com.example.assignment03.IRecieveMesh"/>
 </qualifiedTypeNameHistroy>

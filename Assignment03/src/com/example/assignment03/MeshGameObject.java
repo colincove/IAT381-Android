@@ -6,13 +6,7 @@ import java.nio.FloatBuffer;
 
 import android.opengl.GLES20;
 
-
-
-
-
-
-
-public class MeshGameObject extends GameObject {
+public class MeshGameObject  {
     private final String vertexShaderCode =
             // This matrix member variable provides a hook to manipulate
             // the coordinates of the objects that use this vertex shader
@@ -45,9 +39,9 @@ public class MeshGameObject extends GameObject {
 	    private int mColorHandle;
 	    private int mMVPMatrixHandle;
 	    float color[] = { 1.0f, 0.0f, 0.0f };
-	public MeshGameObject(Game game, ObjMesh mesh) {
-		super(game);
-		game.addMeshObject(this);
+	public MeshGameObject(ObjMesh mesh) {
+		
+		//game.addMeshObject(this);
 		this.mesh = mesh;
 		vertexCount = triangleCoords.length/COORDS_PER_VERTEX;
 		ByteBuffer bb = ByteBuffer.allocateDirect(triangleCoords.length*4);

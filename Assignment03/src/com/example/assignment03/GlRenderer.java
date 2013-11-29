@@ -13,12 +13,14 @@ import javax.microedition.khronos.opengles.GL10;
 
 
 
+import android.content.res.Resources;
 import android.opengl.Matrix;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
+import android.os.Looper;
 
-public class GlRenderer implements Renderer {
+public class GlRenderer implements Renderer, IRecieveMesh {
 
 
 	private final float[] mMVPMatrix = new float[16];
@@ -29,9 +31,21 @@ public class GlRenderer implements Renderer {
 	    // Declare as volatile because we are updating it from another thread
 	public volatile float mAngle;
 	private List<MeshGameObject> meshObjList;
-	public GlRenderer(List<MeshGameObject> meshObjList){
+	private ObjData data=null;
+	private ObjReader objReader;
+	private ObjMesh pyramidMesh;
+	private MeshGameObject pyramidObject;
+	private Resources resources;
+	private Looper looper;
+	public GlRenderer(List<MeshGameObject> meshObjList, Looper looper, Resources resources){
 		super();
-		this.meshObjList=meshObjList;
+		//this.meshObjList=meshObjList;
+		this.looper=looper;
+		this.resources=resources;
+		this.meshObjList = new ArrayList<MeshGameObject>();
+
+		objReader = new ObjReader(R.raw.pyramid, resources);
+        objReader.read(this,looper);
 	}
 
 	@Override
@@ -39,11 +53,11 @@ public class GlRenderer implements Renderer {
 		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
 		Matrix.setLookAtM(mVMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 		Matrix.multiplyMM(mMVPMatrix, 0, mProjMatrix, 0, mVMatrix, 0);
-		//for(MeshGameObject obj : meshObjList){
-		//	obj.draw(mMVPMatrix);
-		//}
+		for(MeshGameObject obj : meshObjList){
+			obj.draw(mMVPMatrix);
+		}
 		
-		triangle.draw(mMVPMatrix);
+		//triangle.draw(mMVPMatrix);
 	}
 
 	@Override
@@ -54,7 +68,7 @@ public class GlRenderer implements Renderer {
 		float ratio =  (float) width/height;
 		
 		Matrix.frustumM(mProjMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
-		//triangle = new Triangle();
+		triangle = new Triangle();
 	}
 
 	@Override
@@ -67,6 +81,15 @@ public class GlRenderer implements Renderer {
 		GLES20.glShaderSource(shader, shaderCode);
 		GLES20.glCompileShader(shader);
 		return shader;
+	}
+
+	@Override
+	public void recieveMesh(ObjData data) {
+		// TODO Auto-generated method stub
+		 pyramidMesh = new ObjMesh(data);
+	        pyramidObject = new MeshGameObject(pyramidMesh);
+	        meshObjList.add(pyramidObject);
+	       
 	}
 
 }
